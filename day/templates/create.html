@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+
+<form action="{% url 'store' %}" method="post">
+
+    {% csrf_token %}
+
+    <input type="text" placeholder="enter your name" name="name">
+    <input type="text" placeholder="enter your age" name="age">
+
+    <button type="submit">submit this form</button>
+</form>
+
+
+
+</body>
+</html>
