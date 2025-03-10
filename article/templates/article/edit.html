@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>article</title>
+</head>
+<body>
+<div>
+    <form action="{% url "update" article.id %}" method="post">
+    {% csrf_token %}
+    <div style="width: 100%;margin: 15px 5px">
+        <input type="text" placeholder="enter your title" name="title" value="{{ article.title }}"/>
+    </div>
+    <textarea name="content">{{ article.content }}</textarea>
+
+    <button type="submit">send!</button>
+
+</form>
+</div>
+</body>
+</html>

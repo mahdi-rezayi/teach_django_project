@@ -27,7 +27,7 @@
             <td>{{ article.id }}</td>
             <td>{{ article.title }}</td>
             <td>
-                <a href="">ویرایش</a>
+                <a href="{% url "edit" article.id %}">ویرایش</a>
                 <a href="">حذف</a>
             </td>
         </tr>

@@ -13,9 +13,7 @@ def index(request):
 
 
 def create(request):
-    users = User.objects.all()
-    context = {'users': users}
-    return render(request, 'article/create.html', context)
+    return render(request, 'article/create.html')
 
 
 def store(request):
@@ -25,3 +23,24 @@ def store(request):
     Article.objects.create(title=title, content=description)
     return redirect('index')
 
+
+def edit(request, id):
+    article = Article.objects.get(id=id)
+    context = {
+        'article': article,
+    }
+    return render(request, 'article/edit.html', context)
+
+
+def update(request, id):
+    article = Article.objects.get(id=id)
+    article.title = request.POST.get('title')
+    article.content = request.POST.get('content')
+    article.save()
+    return redirect('index')
+
+
+def delete(request, id):
+    article = Article.objects.get(id=id)
+    article.delete()
+    return redirect('index')
